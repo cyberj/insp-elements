@@ -12,7 +12,7 @@
   ],
   "main": "insp-ibox.html",
   "license": "MIT",
-  "homepage": "https://github.com/cyberj/insp-ibox/",
+  "homepage": "https://github.com/cyberj/insp-elements/",
   "ignore": [
     "/.*",
     "/test/"
