@@ -1,0 +1,37 @@
+{
+  "name": "insp-elements",
+  "authors": [
+    "Johan Charpentier <johan.charpentier@ibnetwork.fr>"
+  ],
+  "description": "Elements to work with inspinia theme",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "inspinia"
+  ],
+  "main": "insp-ibox.html",
+  "license": "MIT",
+  "homepage": "https://github.com/cyberj/insp-ibox/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
+    "iron-collapse": "PolymerElements/iron-collapse#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "_release": "227b0c5930",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "227b0c5930c5cb8a666baf7f89108a02fd25ba1a"
+  },
+  "_source": "git://github.com/cyberj/insp-elements.git",
+  "_target": "master",
+  "_originalSource": "cyberj/insp-elements",
+  "_direct": true
+}

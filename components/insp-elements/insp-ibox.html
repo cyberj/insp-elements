@@ -1,0 +1,128 @@
+<link href="../polymer/polymer.html" rel="import">
+<link href="../iron-collapse/iron-collapse.html" rel="import">
+
+<!--
+An element to make an inspinia ibox
+
+Example:
+
+    <insp-ibox></insp-ibox>
+
+Any content with `toolbar` class will be in the toolbar wrench.
+
+@group Inspinia Elements
+@element insp-ibox
+-->
+<dom-module id="insp-ibox">
+
+  <template>
+    <style></style>
+    <div class="ibox float-e-margins">
+      <template if="[[toolbar]]" is="dom-if">
+        <div class="ibox-title toto">
+          <h5>[[title]]</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link" on-click="toggleIbox">
+              <i class$="{{_chevronClass(collapsed)}}"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <content select=".toolbar">
+              <ul class="dropdown-menu dropdown-user">
+                <li>
+                  <a href="#">Config option 1</a>
+                </li>
+                <li>
+                  <a href="#">Config option 2</a>
+                </li>
+              </ul>
+            </content>
+            <a class="close-link" on-click="quit">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+      </template>
+      <iron-collapse id="tocollapse" opened="{{!collapsed}}">
+        <div class="ibox-content" is="iron-collapse">
+          <content select=""></content>
+        </div>
+      </iron-collapse>
+    </div>
+    </div>
+    </div>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+
+        is: 'insp-ibox',
+
+        properties: {
+
+          /**
+           * `title` sets title of the ibox
+           */
+          title: {
+            type: String,
+            value: 'IBox',
+            notify: true
+          },
+          /**
+           * `title` sets title of the ibox
+           */
+          toolbar: {
+            type: Boolean,
+            value: false,
+            notify: true
+          },
+          /**
+           * `collapsed` Should the box be collapsed at start ?
+           */
+          collapsed: {
+            type: Boolean,
+            value: false,
+            notify: true
+          }
+        },
+
+        /**
+         * Toggle the ibox Collapse
+         *
+         * @return {boolean} The ibox state after toggling
+         */
+        toggleIbox: function(e, d) {
+          this.collapsed = !this.collapsed;
+          return this.collapsed
+        },
+
+        _chevronClass: function(collapsed) {
+          var base = "fa";
+          if (collapsed) {
+            base += " fa-chevron-down"
+          } else {
+            base += " fa-chevron-up"
+          }
+          return base
+        },
+
+        /**
+         * Close ibox Collapse
+         *
+         */
+        quit: function() {
+          this.remove();
+        },
+
+        detached: function() {
+          console.log(this.localName + '#' + this.id + ' was detached');
+        }
+      });
+    })();
+  </script>
+
+</dom-module>
